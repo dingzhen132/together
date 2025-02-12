@@ -2,10 +2,12 @@ package com.easycom.Controller;
 
 
 import com.easycom.Service.IUserInfoService;
+import com.easycom.entity.PO.UserInfo;
 import com.easycom.entity.VO.Result;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -32,5 +34,8 @@ public class UserInfoController {
         return userInfoService.getCheckCode();
     }
 
-
+    @RequestMapping("/login")
+    public Result login(@RequestParam UserInfo userInfo){
+        return userInfoService.login(userInfo);
+    }
 }
